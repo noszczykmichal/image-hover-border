@@ -37,13 +37,13 @@ div:hover>p{
     font-size: 4em;
     transition: all 0.5s linear;
 }
-
+/* top border of image */
 div::before{
     position: absolute;
-    height: 1%;
+    height: 0.01%;
     width: 1%;
     border: 2px solid #000;
-    border-bottom-color: transparent;
+    border-bottom-color: transparent; /* this one won't be needed as pseudo-element 'grow' from top center part of image to its center that's why we need only top border to be visible at this point */
     border-right-color: transparent;
     border-left-color: transparent;
     top: -5px;
@@ -57,9 +57,36 @@ div:hover::before{
     left: -5px;
     right: -5px;
     opacity: 1;
-    height: 50%;
-    border-left-color: black;
-    border-right-color: black;
+    height: 51%;
+    border-left-color: #000; /* changing colors for left and right border so that when pseudo-element changes its hight they will be visible*/
+    border-right-color: #000;
+    /* height transition post-poned by 1.2s so that by the time it starts pseudo-element has its full width*/
     transition: width 1s linear 0s, left 1s linear 0s, opacity 1s linear 0s, height 2s linear 1.2s; 
 }
 
+/* bottom border of image */
+div::after{
+    position: absolute;
+    height: 0.01%;
+    width: 1%;
+    border: 2px solid #000;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-left-color: transparent;
+    bottom: -5px;
+    left: 50%;
+    content:"";
+    opacity: 0;
+}
+
+div:hover::after{
+    width: 101%;
+    left: -5px;
+    right: 5px;
+    bottom: -5px;
+    opacity: 1;
+    height: 51%;
+    border-left-color: #000;
+    border-right-color: #000;
+    transition: width 1s linear 0s, left 1s linear 0s, opacity 1s linear 0s, height 2s linear 1.2s; 
+}
