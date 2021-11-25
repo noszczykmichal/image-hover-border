@@ -43,7 +43,7 @@ div::before{
     height: 0.01%;
     width: 1%;
     border: 2px solid #000;
-    border-bottom-color: transparent; /* this one won't be needed as pseudo-element 'grow' from top center part of image to its center that's why we need only top border to be visible at this point */
+    border-bottom-color: transparent; /* this one won't be needed as the pseudo-element 'grows' from top center part of the image to its center that's why we need only the top border to be visible at this point */
     border-right-color: transparent;
     border-left-color: transparent;
     top: -5px;
@@ -58,9 +58,9 @@ div:hover::before{
     right: -5px;
     opacity: 1;
     height: 51%;
-    border-left-color: #000; /* changing colors for left and right border so that when pseudo-element changes its hight they will be visible*/
+    border-left-color: #000; /* changing colors for the left and right border so that when the pseudo-element changes its hight they will be visible*/
     border-right-color: #000;
-    /* height transition post-poned by 1.2s so that by the time it starts pseudo-element has its full width*/
+    /* height transition post-poned by 1.2s so that by the time it starts the pseudo-element has its full width*/
     transition: width 1s linear 0s, left 1s linear 0s, opacity 1s linear 0s, height 2s linear 1.2s; 
 }
 
@@ -78,7 +78,7 @@ div::after{
     content:"";
     opacity: 0;
 }
-
+/*element 'grows' from bottom of the image to its center*/
 div:hover::after{
     width: 101%;
     left: -5px;
